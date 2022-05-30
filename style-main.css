@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Share+Tech&display=swap');
+
+/* CARDs */
+
+.container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin: 3rem 0;
+}
+
+.card-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 90%;
+    margin: 3rem 0 0 0;
+}
+
+.card {
+    height: 300px;
+    width: 400px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    filter: grayscale(0.8);
+    color: #ffffff;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.card-container:nth-child(1) .card {
+    background-image: url('./github.png');
+}
+
+.card-container:nth-child(2) .card {
+    background-image: url('./linkedin.png');
+}
+
+.card-container:nth-child(3) .card {
+    background-image: url('./portal.png');
+}
+
+.card-text {
+    width: 40%;
+    font-family: sans-serif;
+    letter-spacing: 1px;
+    color: rgb(109, 109, 109);
+}
+
+.card-wrapper::before {
+    content: '';
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    display: block;
+    border: 1px solid white;
+    opacity: 0;
+    transition: 0.5s ease-in-out;
+}
+
+.card-wrapper h2 {
+    font-size: 40px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin: 0;
+    transition: 0.3s;
+    color: #000000;
+    text-shadow: 0 0 4px #ffffff;
+    font-family: 'Share Tech', sans-serif;
+}
+
+.card-wrapper p {
+    font-size: 0;
+    visibility: hidden;
+    opacity: 0;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+.card:hover {
+    filter: grayscale(0);
+}
+
+.card:hover > .card-wrapper::before {
+    visibility: visible;
+    opacity: 1;
+    width: 350px;
+    height: 250px;
+    transition: 0.3s ease-in-out;
+}
+
+/* CARDS */
+
+.container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 3rem 0;
+}
+
+.card-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 90%;
+}
+
+.card-wrapper {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    position: relative;
+}
+
+.card:hover > .card-wrapper p {
+    font-size: 14px;
+    opacity: 1;
+    visibility: visible;
+    font-weight: bold;
+    color: #000000;
+    text-shadow: 0 0 2px #ffffff;
+    background-color: rgba(255, 255, 255, .5);
+    padding: 5px;
+    font-family: sans-serif;
+    text-decoration: none;
+}
+
+.container .card-container .card .card-wrapper p {
+    z-index: 1000;
+}
+
+.container .card-container .card .card-wrapper p a {
+    text-decoration: none;
+    color: #000000;
+}
+
+/* Responsivo */
+
+@media (max-width: 800px) {
+    .social-media {
+        display: flex;
+        flex-direction: column;
+    }   
+
+    .container {
+        margin-top: 0;
+    }
+
+    .card-container {
+        flex-direction: column;
+    }
+
+    .container .card-container:nth-child(1),
+    .container .card-container:nth-child(3) {
+        flex-direction: column-reverse;
+    }
+
+    .container .card-container .card-text {
+        width: 95%;
+        text-align: center;
+    }
+
+    .container .card-container .card {
+        width: 95%;
+        margin-bottom: 10px;
+    }
+
+    .card:hover >.card-wrapper::before {
+        height: 220%;
+        width: 160%;
+    }
+}
